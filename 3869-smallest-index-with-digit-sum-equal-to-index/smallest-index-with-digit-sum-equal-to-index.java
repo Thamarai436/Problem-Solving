@@ -1,0 +1,20 @@
+class Solution {
+    public int digitsum(int n)
+    {
+        int sum = 0;
+        while(n>0)
+        {
+            sum+=(n%10);
+            n/=10;
+        }
+        return sum;
+    }
+    public int smallestIndex(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        for(int i = 0 ; i < nums.length ;i++)
+        {
+            if(digitsum(nums[i])==i) min = Math.min(min,i);
+        }
+        return min == 2147483647 ? -1 : min;
+    }
+}
